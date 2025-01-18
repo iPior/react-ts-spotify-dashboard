@@ -25,10 +25,17 @@ function Login() {
   },[])
 
   return (
-    <div className="w-full h-full flex justify-center align-middle"> 
-      <Button>
-        <a href={authUrl}>Login</a>
-      </Button>
+    <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-background p-6 md:p-10">
+      <h1 className="text-5xl">
+        Spotify Dashboard
+      </h1>
+      <div className="w-full max-w-sm text-center">  
+        <Button
+          className="bg-white"
+        >
+          <a href={authUrl}>Login</a>
+        </Button>
+      </div>
     </div>
   );
 }

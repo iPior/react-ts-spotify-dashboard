@@ -34,7 +34,6 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (!accessToken) return;
-    console.log("am i in here yet?")
     
     axios.get("http://localhost:8080/getdata")
     .then(response => {
@@ -47,22 +46,26 @@ export default function Dashboard() {
 
   },[accessToken])
 
-    const handleButton = () => {
-      localStorage.removeItem("access_token")
-      axios.get("http://localhost:8080/clear")
-      navigate('/');
-    }
+  const handleButton = () => {
+    localStorage.removeItem("access_token")
+    axios.get("http://localhost:8080/clear")
+    navigate('/');
+  }
 
   return (
-    <div>
+
+    <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-background p-6 md:p-10">
       <h1>You made it {profileName}!</h1>
       <img src={profileUrl}></img>
       <Button
         onClick={handleButton}
+        className='bg-white'
       >
         <a> Log out</a>
       </Button>
     </div>
+
+
     
   )
 }
